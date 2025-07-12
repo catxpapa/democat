@@ -19,3 +19,14 @@ services:
       - MYSQL_DATABASE=LAZYCAT
       - MYSQL_USER=LAZYCAT
       - MYSQL_PASSWORD=LAZYCAT
+envs:
+  - name: DB_HOST
+    value: mysql.${PACKAGE}.lzcapp
+  - name: DB_PORT
+    value: "3306"
+  - name: DB_USER
+    value: LAZYCAT
+  - name: DB_PASSWORD
+    value: LAZYCAT
+  - name: DB_DATABASE
+    value: LAZYCAT
