@@ -1,5 +1,6 @@
 #!/bin/sh
+cd "(dirname "$0")"
 apk update
 apk add nodejs npm
-npm ci --only=production
+npm install
 npm run start
