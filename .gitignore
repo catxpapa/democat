@@ -2,3 +2,4 @@ node_modules
 *.lpk
 
 .lzc-cli-*
+package-lock.json
