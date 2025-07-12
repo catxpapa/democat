@@ -1,0 +1,21 @@
+name: 玳瑁猫-DBDemo
+package: cloud.lazycat.app.democatdb
+version: 0.0.4
+description:
+license: https://choosealicense.com/licenses/mit/
+homepage:
+author:
+application:
+  subdomain: democatdb
+  routes:
+    - /=exec://3000,./lzcapp/pkg/content/db/run.sh
+services:
+  mysql:
+    image: registry.lazycat.cloud/mysql
+    binds:
+      - /lzcapp/var/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=LAZYCAT
+      - MYSQL_DATABASE=LAZYCAT
+      - MYSQL_USER=LAZYCAT
+      - MYSQL_PASSWORD=LAZYCAT
