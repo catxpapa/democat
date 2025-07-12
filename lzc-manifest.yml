@@ -7,7 +7,7 @@ homepage:
 author:
 application:
   subdomain: democatdb
-  workdir: /lzcapp/pkg/content /
+  workdir: /lzcapp/pkg/content/app /
   routes:
     - /=exec://3000,./lzcapp/pkg/content/run.sh
 services:
