@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玳瑁猫 - 懒猫微服开发演示</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="top-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="images/logo.png" alt="玳瑁猫 Logo" class="logo">
+                <h1>玳瑁猫</h1><div class="site-title"><h2>DemoCAT</h2><span class="description">懒猫微服基础应用及数据库Demo</span></div>
+                <a class="github-link" href="https://github.com/catxpapa/democat" target="_blank">Github</a>
+            </div>
+            <div class="header-info">
+                <span class="status-indicator" id="connectionStatus">
+                    <i class="fas fa-circle"></i> 连接状态检测中...
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <div class="main-container">
+        <!-- 左侧功能面板 -->
+        <aside class="left-panel">
+            <div class="panel-header">
+                <h2><i class="fas fa-tools"></i> 功能面板</h2>
+            </div>
+
+            <!-- 项目说明卡片 -->
+            <div class="function-card active" id="helpCard">
+                <div class="card-header" onclick="toggleCard('help')">
+                    <i class="fas fa-info-circle"></i>
+                    <span>项目说明</span>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="card-content" id="helpContent">
+                    <div class="help-section">
+                        <h4><i class="fas fa-rocket"></i> 项目介绍</h4>
+                        <p>玳瑁猫是一个懒猫微服基础开发演示应用，展示了从数据库连接到前端界面的完整开发流程。</p>
+                        
+                        <h4><i class="fas fa-database"></i> 核心功能</h4>
+                        <ul>
+                            <li>基本应用打包及安装</li>
+                            <li>懒猫官方提供的MySQL数据库连接测试</li>
+                            <li>数据库RESTful API设计演示</li>
+                            <li>数据管理及查看（可爱动物主题测试数据）</li>
+                        </ul>
+
+                        <h4><i class="fas fa-play"></i> 体验步骤</h4>
+                        <ol>
+                            <li>点击"系统测试"检查环境</li>
+                            <li>执行"数据库管理"创建表和数据</li>
+                            <li>查看"数据展示"了解数据结构</li>
+                            <li>到<a href="https://github.com/catxpapa/democat" target="_blank">Github仓库</a>查看全部代码</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 系统测试卡片 -->
+            <div class="function-card" id="systemCard">
+                <div class="card-header" onclick="toggleCard('system')">
+                    <i class="fas fa-stethoscope"></i>
+                    <span>系统测试</span>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="card-content" id="systemContent">
+                    <button class="action-btn primary" onclick="testHealth()">
+                        <i class="fas fa-heartbeat"></i> 健康检查
+                    </button>
+                    <button class="action-btn secondary" onclick="testEnvironment()">
+                        <i class="fas fa-cog"></i> 环境变量
+                    </button>
+                    <button class="action-btn secondary" onclick="testNetwork()">
+                        <i class="fas fa-network-wired"></i> 网络连接
+                    </button>
+                    <button class="action-btn secondary" onclick="testDatabase()">
+                        <i class="fas fa-database"></i> 数据库连接
+                    </button>
+                </div>
+            </div>
+
+            <!-- 数据库管理卡片 -->
+            <div class="function-card" id="databaseCard">
+                <div class="card-header" onclick="toggleCard('database')">
+                    <i class="fas fa-database"></i>
+                    <span>数据库管理</span>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="card-content" id="databaseContent">
+                    <button class="action-btn success" onclick="createTables()">
+                        <i class="fas fa-table"></i> 创建数据表
+                    </button>
+                    <button class="action-btn primary" onclick="insertDemoData()">
+                        <i class="fas fa-plus-circle"></i> 插入演示数据
+                    </button>
+                    <button class="action-btn warning" onclick="insertDemoData(true)">
+                        <i class="fas fa-sync-alt"></i> 重置数据
+                    </button>
+                </div>
+            </div>
+
+            <!-- 数据展示卡片 -->
+            <div class="function-card" id="dataCard">
+                <div class="card-header" onclick="toggleCard('data')">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>数据展示</span>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="card-content" id="dataContent">
+                    <button class="action-btn info" onclick="viewCategories()">
+                        <i class="fas fa-tags"></i> 查看分类
+                    </button>
+                    <button class="action-btn info" onclick="viewAnimals()">
+                        <i class="fas fa-paw"></i> 查看动物
+                    </button>
+                    <button class="action-btn info" onclick="viewStatistics()">
+                        <i class="fas fa-chart-pie"></i> 数据统计
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 右侧结果展示区域 -->
+        <main class="right-panel">
+            <div class="panel-header">
+                <h2><i class="fas fa-desktop"></i> 结果展示</h2>
+                <button class="clear-btn" onclick="clearResults()">
+                    <i class="fas fa-trash"></i> 清空结果
+                </button>
+            </div>
+
+            <div class="results-container" id="resultsContainer">
+                <div class="welcome-message">
+                    <div class="welcome-icon">
+                       <img src="images/logo.png" alt="玳瑁猫 Logo" class="biglogo">
+                    </div>
+                    <h3>欢迎使用玳瑁猫！</h3>
+                    <p>请从左侧功能面板开始体验</p>
+                    <div class="quick-start">
+                        <h4>或者你也可以快速开始：</h4>
+                        <button class="quick-btn" onclick="quickStart()">
+                            <i class="fas fa-rocket"></i> 一键体验完整流程
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 加载遮罩 -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <img src="images/logo.png" alt="玳瑁猫 Logo" class="logo">
+            <p>玳瑁猫正在工作中...</p>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
