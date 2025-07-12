@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>玳瑁猫 - 懒猫微服开发演示平台</title>
+    <title>玳瑁猫 - 懒猫微服开发演示</title>
     <link rel="stylesheet" href="styles/main.css">
     <!-- Font Awesome 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,9 +13,9 @@
     <header class="top-header">
         <div class="header-content">
             <div class="logo-section">
-                <i class="fas fa-cat logo-icon"></i>
-                <h1>玳瑁猫</h1>
-                <span class="project-id">democatdb</span>
+                <img src="./image/lzc-icon.png" alt="玳瑁猫 Logo" class="logo">
+                <h1>玳瑁猫</h1><div class="site-title"><h2>DemoCAT</h2><span class="description">懒猫微服基础应用及数据库Demo</span></div>
+                <a class="github-link" href="https://github.com/catxpapa/democat" target="_blank">Github</a>
             </div>
             <div class="header-info">
                 <span class="status-indicator" id="connectionStatus">
@@ -43,41 +43,22 @@
                 <div class="card-content" id="helpContent">
                     <div class="help-section">
                         <h4><i class="fas fa-rocket"></i> 项目介绍</h4>
-                        <p>玳瑁猫是一个懒猫微服基础开发演示平台，展示了从数据库连接到前端界面的完整开发流程。</p>
+                        <p>玳瑁猫是一个懒猫微服基础开发演示应用，展示了从数据库连接到前端界面的完整开发流程。</p>
                         
                         <h4><i class="fas fa-database"></i> 核心功能</h4>
                         <ul>
-                            <li>MySQL数据库连接测试</li>
-                            <li>RESTful API设计演示</li>
-                            <li>可爱动物主题数据管理</li>
-                            <li>现代化前端界面展示</li>
+                            <li>基本应用打包及安装</li>
+                            <li>懒猫官方提供的MySQL数据库连接测试</li>
+                            <li>数据库RESTful API设计演示</li>
+                            <li>数据管理及查看（可爱动物主题测试数据）</li>
                         </ul>
 
-                        <h4><i class="fas fa-sitemap"></i> 项目结构</h4>
-                        <div class="project-structure">
-                            <div class="structure-item">
-                                <i class="fas fa-file-code"></i> manifest.yaml - 懒猫微服配置
-                            </div>
-                            <div class="structure-item">
-                                <i class="fas fa-server"></i> src/app.js - 主应用入口
-                            </div>
-                            <div class="structure-item">
-                                <i class="fas fa-route"></i> src/routes/ - API路由
-                            </div>
-                            <div class="structure-item">
-                                <i class="fas fa-database"></i> src/utils/db.js - 数据库工具
-                            </div>
-                            <div class="structure-item">
-                                <i class="fas fa-palette"></i> public/ - 前端静态文件
-                            </div>
-                        </div>
-
-                        <h4><i class="fas fa-play"></i> 使用步骤</h4>
+                        <h4><i class="fas fa-play"></i> 体验步骤</h4>
                         <ol>
                             <li>点击"系统测试"检查环境</li>
                             <li>执行"数据库管理"创建表和数据</li>
                             <li>查看"数据展示"了解数据结构</li>
-                            <li>体验完整的开发流程</li>
+                            <li>到<a href="https://github.com/catxpapa/democat" target="_blank">Github仓库</a>查看全部代码</li>
                         </ol>
                     </div>
                 </div>
@@ -159,12 +140,12 @@
             <div class="results-container" id="resultsContainer">
                 <div class="welcome-message">
                     <div class="welcome-icon">
-                        <i class="fas fa-cat"></i>
+                       <img src="./image/lzc-icon.png" alt="玳瑁猫 Logo" class="biglogo">
                     </div>
-                    <h3>欢迎使用玳瑁猫演示平台！</h3>
-                    <p>请从左侧功能面板开始体验懒猫微服的开发流程</p>
+                    <h3>欢迎使用玳瑁猫！</h3>
+                    <p>请从左侧功能面板开始体验</p>
                     <div class="quick-start">
-                        <h4>快速开始：</h4>
+                        <h4>或者你也可以快速开始：</h4>
                         <button class="quick-btn" onclick="quickStart()">
                             <i class="fas fa-rocket"></i> 一键体验完整流程
                         </button>
@@ -177,7 +158,7 @@
     <!-- 加载遮罩 -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-spinner">
-            <i class="fas fa-cat"></i>
+            <img src="./image/lzc-icon.png" alt="玳瑁猫 Logo" class="logo">
             <p>玳瑁猫正在工作中...</p>
         </div>
     </div>

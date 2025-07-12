@@ -1,1 +1,4 @@
 node_modules
+*.lpk
+
+cloud.lazycat.app.democatdb-v0.0.7.lpk
