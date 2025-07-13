@@ -1,13 +1,13 @@
 name: 玳瑁猫-DBDemo
 package: cloud.lazycat.app.democatdb
-version: 0.1.0
+version: 0.1.1
 description:
 license: https://choosealicense.com/licenses/mit/
 homepage:
 author:
 application:
   subdomain: democatdb
-  workdir: /lzcapp/pkg/content/app /
+  workdir: /lzcapp/pkg/content/app
   routes:
     - /=exec://3000,./lzcapp/pkg/content/run.sh
 services:
