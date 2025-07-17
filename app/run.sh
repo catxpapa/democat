@@ -1,6 +1,7 @@
 #!/bin/sh
-cd /lzcapp/pkg/content/app
+cd /lzcapp/pkg/content
+ls
 apk update
 apk add nodejs npm
-npm install
+# npm install
 npm run start
